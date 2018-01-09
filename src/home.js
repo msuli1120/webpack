@@ -3,5 +3,7 @@ import '../assets/css/main.css';
 
 // var $ = require('jquery');
 
-var name = 'haasdf asdfuckyou';
+var name = 'haasdf my hello';
 console.log(name);
+
+

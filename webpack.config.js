@@ -1,15 +1,12 @@
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const webpack = require("webpack");
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const path = require('path');
 
 module.exports = {
   entry: {
     home: "./src/home.js"
-  },
-  output: {
-    filename: "[name].js",
-    path: __dirname + '/dist'
   },
   module: {
     rules: [
@@ -42,6 +39,7 @@ module.exports = {
   },
   watch: true,
   plugins: [
+    new CleanWebpackPlugin(['dist']),
     new ExtractTextPlugin("styles.css"),
     new webpack.optimize.CommonsChunkPlugin("vendors"),
     new webpack.WatchIgnorePlugin([
@@ -69,5 +67,9 @@ module.exports = {
       ]
     }, { reload: false })
   ],
-  devtool:'source-map'
+  devtool:'source-map',
+  output: {
+    filename: "[name].js",
+    path: path.resolve(__dirname, 'dist')
+  },
 }

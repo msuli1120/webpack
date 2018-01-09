@@ -8,10 +8,14 @@
   <title>Webpack</title>
 </head>
 <body>
-  <h1>Hello PHP</h1>
   <?php
-    echo 'HI PHP! yes';
+    include_once './header.php';
   ?>
+  <h1>Hello PHP hello hello</h1>
+  <?php
+    echo 'HI PHP! yes yoyo';
+  ?>
+
   <script src="./dist/vendors.js" type="text/javascript"></script>
   <script src="./dist/home.js" type="text/javascript"></script>
 </body>
