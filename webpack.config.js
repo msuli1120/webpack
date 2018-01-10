@@ -6,7 +6,8 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    home: "./src/home.js"
+    home: "./src/home.js",
+    about: "./src/about.js"
   },
   module: {
     rules: [
@@ -30,7 +31,7 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ['es2016']
+            presets: ["es2016", "react"]
           }
         },
         exclude: /(node_modules|bower_components)/
@@ -48,12 +49,16 @@ module.exports = {
     new BrowserSyncPlugin({
       host: 'localhost',
       port: 3000,
-    //  server: { baseDir: ['./dist/*.html'] } // for frontend
-      proxy: 'http://localhost/webpack',
+      proxy: {
+        target: 'http://localhost/webpack'
+      },
       files: [
         {
           match: [
-            './*.php'
+            '*.php',
+            '**/*.jsx',
+            './assets/*',
+            './src/*'
           ],
           fn: function (event, file) {
             if (event === "change") {
