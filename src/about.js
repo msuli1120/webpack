@@ -1,3 +1,5 @@
+import '../assets/scss/about.scss';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 

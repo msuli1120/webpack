@@ -41,7 +41,10 @@ module.exports = {
   watch: true,
   plugins: [
     new CleanWebpackPlugin(['dist']),
-    new ExtractTextPlugin("styles.css"),
+    new ExtractTextPlugin({
+      filename: '[name].style.css',
+      allChunks: true
+    }),
     new webpack.optimize.CommonsChunkPlugin("vendors"),
     new webpack.WatchIgnorePlugin([
       path.join(__dirname, "node_modules")
@@ -56,9 +59,10 @@ module.exports = {
         {
           match: [
             '*.php',
-            '**/*.jsx',
-            './assets/*',
-            './src/*'
+            './src/*.js',
+            './assets/css/*.css',
+            './assets/js/*.js',
+            './assets/scss/*.scss'
           ],
           fn: function (event, file) {
             if (event === "change") {

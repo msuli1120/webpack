@@ -1,5 +1,5 @@
 import '../assets/scss/main.scss';
-import '../assets/css/main.css';
+import '../assets/css/main.css';  
 
 // var $ = require('jquery');
 
