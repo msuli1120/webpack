@@ -7,7 +7,10 @@
   <title>React</title>
 </head>
 <body>
-  <div id="ract"></div>
+<?php
+  $data = ['da', 'ta', 'yo', 'lo'];
+?>
+  <div id="ract" data="<?php echo $data; ?>"></div>
 
   <script src="./dist/vendors.js" type="text/javascript"></script>
   <script src="./dist/about.js" type="text/javascript"></script>
